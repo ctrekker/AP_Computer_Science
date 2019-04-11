@@ -1,0 +1,18 @@
+BOXES:
+This program has a few important rules associated with it.
+
+First off, the box.dat has to exist from the run directory.
+For example, if you ran the program from C:/Users/person1/programs, then
+the box.dat would need to be located in that directory (or classpath for all 
+you more technical folks).
+
+Second off, the box.dat needs to be in the correct format. The first line is
+devoted to how many entries follow it. For example, if you wanted to list 8 box
+rules, the initial number on this first line would contain "8", then a newline.
+
+The Following lines should be written in the following format:
+Letter to build box out of, then a space, then the width/height of the box
+(one number), followed by a newline.
+
+ODDOREVEN:
+This has basically the same rules for boxes. Make sure it is in correct format.

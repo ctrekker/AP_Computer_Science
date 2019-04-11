@@ -1,0 +1,14 @@
+{
+  "name": "texas_holdem_server",
+  "version": "1.0.0",
+  "description": "Acts as a WebSocket for Texas Holdem games which can be connected to by using the client (Java edition).",
+  "main": "socketserver.js",
+  "scripts": {
+    "test": "node socketserver.js"
+  },
+  "author": "Connor Burns",
+  "license": "ISC",
+  "dependencies": {
+    "nodejs-websocket": "latest"
+  }
+}

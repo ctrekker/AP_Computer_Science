@@ -1,0 +1,98 @@
+NOTE: UNZIP THIS ZIP INTO A DIRECTORY. DO NOT ATTEMPT TO RUN FROM WITHIN ZIP FILE!
+
+---INTRO---
+Welcome to the source directory of TexasHoldem by Connor Burns! Here you will find
+the instructions for how to run, use, and view the source code of this app.
+
+As with every program, there's always more to add, fix, and make better. The version
+packaged here is version 1.0. This means that it is in a complete form. However, as
+with every program with over 2000 lines, there will always be minor bugs. All the major
+ones have been fixed, but to fix and find every single minor bug would be impossible
+within our time constraints. Below are a list of the KNOWN bugs. These are intentional
+and are considered bugs, but were not pushed to utmost importance in version 1.0.
+- Very rarely, when two people join, on the first person to join's screen only one person
+ will render and show up, even though the server clearly gives it information for another
+ player. This bug is very rare, and will fix itself if the following steps are performed:
+  1. Press start game on the current bugged-instance
+  2. Close ALL the instances connected to that server
+  3. Reopen the program, and connect two new instances to a NEW server
+ At this point, the bug should have resolved itself, as it is extremely rare that this will occur
+ (it only ever happened 2 times during testing)
+- On the server, aces can be considered low rather than high on even rarer scenarios than
+ the previous bug. For the amount of time it would take to fix, and the rarity of the bug 
+ once again, this one wasn't worth putting into version 1.0
+- After selection of the server in the introduction screen, no game screen opens. This has
+ only ever happened a few times, and never on a windows computer. The fix to this bug is to
+ open another instance of the game. This will most likely update the JVM and force the previous
+ window to open
+- When a button is clicked multiple times, issues can occur. This isn't as much of a bug, as
+ it is really just a left-out feature (disable the buttons after one has been pressed). For
+ example, if you raise the bet twice before the server updates and says you've raised, it will
+ raise double. Once again, super rare, and won't happen if you don't press a button more than
+ once every 2 seconds (which you shouldn't anyway)
+- Resizing results in really messed-up ratios and ends up looking bad. Please keep window at
+ fullscreen to prevent wacky screen ratios.
+- High-res screens often have smaller cards, possibly making them more difficult to read. 
+ Version 2.0 would have dynamically resizing cards.
+
+**The source code is located in the /source directory.
+**The server code (written in NodeJS, PHP, JSON, and BASH) is located in the /server directory.
+
+
+---SHORTENED INSTRUCTIONS---
+**For full instructions, see next section
+**Be sure only to include alphanumeric characters in the username (a-z,A-Z,0-9)
+There are three different ways provided to run the program. The easiest and least
+likely to fail due to human error is by simply double-clicking the jar file in the
+root directory of the zip. This will hide the program console (debug) and run the
+program in production mode (what would be released to the world). To view the debug
+console, view full instructions in run section. All of the source code is inside the
+/source folder. Finally, if any errors are encountered, please visit the "EXPECTED
+ERRORS" section.
+
+
+---FULL INSTRUCTIONS---
+TO RUN:
+It is recommended that you do NOT manually compile the source code, but use the
+TexasHoldem.jar file included in the download. To run this, either double-click
+the file, or enter command prompt, change the directory to the current one, then
+enter this command: "java -jar TexasHoldem.jar". This will use the current console
+window as the program output. If you truly desire running the source code, then
+run the command "javac **.java" in the source root directory, and then enter the
+command "java GameLauncher". This method is not advised, as there are many moving
+parts and many places for error. It is for this reason I also included a .bat file,
+which will run all these commands for you. It is called "run.bat" and is located in
+the /source directory.
+When the program is run, expect a download screen, as it checks to make sure all the
+needed image resources are available, and if they are not, downloads them. All these
+images are not included in this folder, so it will download them to the /TexasHoldem_assets
+directory.
+
+TO VIEW SOURCE CODE:
+Simply visit the /source directory and all the source code will be located there in
+the form of .java files. Please note that the package org.json is an external, open
+source JSON parser used to turn String responses from the server into JSONObjects,
+enabling Java to read data from the server effectively. I did not write this library
+myself, as it would have taken years, just as it would to program a JFrame without using
+javax.swing.
+
+EXPECTED ERRORS:
+1. The most common error is an ArrayIndexOutOfBounds exception on a JFrame. This can
+be ignored as it has no effect on the client, and is completely intentional for debug
+purposes.
+
+2. When on the instructions screen, the list of servers just says "Loading..." and
+never lists servers.
+    - This means that there was some sort of error connecting to the server. Please
+    make sure you are properly connected to the internet, that you don't have port
+    52 blocked on your computer/network (it shouldn't be, but you never know). After
+    checking these things, restart the program and try again. If the problem persists,
+    its most likely on the server-side. The program is supposed to be able to fix this
+    on its own, but if not, wait 5-10 minutes and try again. If that doesn't work, then
+    I will have to rerun the server within 30 minutes of the program being run to enable
+    short-term mode, although, in theory, this should never happen.
+
+3. The server list shows up correctly, but errors out when I click on "Join Server"
+    - The best thing to do here is rerun it. This only seems to occur when manually compiling
+    the source code, and the chances of it happening again, from my experience, are 1 in 
+    100. If the problem persists, try waiting 5-10 minutes and reruning.

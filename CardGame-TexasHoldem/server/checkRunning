@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd /home/ctrekker/school/TexasHoldem
+echo "starting checker..."
+if lsof -Pi :52 -sTCP:LISTEN -t >/dev/null ; then
+    echo "running"
+else
+    echo "not running"
+    nodejs pokerserver.js>"latestOutput.txt"&
+fi
